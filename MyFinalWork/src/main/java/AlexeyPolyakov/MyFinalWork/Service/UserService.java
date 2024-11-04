@@ -47,7 +47,9 @@ public class UserService {
         if (userRepository.findByEmail(user.getEmail()) != null) {
             return false; // Пользователь с таким email уже существует
         }
+        System.out.println(user);
         userRepository.save(user); // Сохраняем пользователя
+        System.out.println(userRepository.findByEmail(user.getEmail()));
         return true; // Успешно сохранено
     }
 }
