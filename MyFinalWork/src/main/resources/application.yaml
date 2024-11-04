@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/myDataBase
+    username: Polyakov
+    password: tiger123
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+logging:
+  level:
+    root: INFO # Уровень логирования для корневого логгера
+    org.springframework: DEBUG # Уровень логирования для Spring Framework
+    com.yourpackage: DEBUG # Уровень логирования для вашего пакета (замените на ваш пакет)

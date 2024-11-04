@@ -1,0 +1,280 @@
+<html><head><base href="https://example.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Главная</title>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+<style>
+:root {
+    --primary-color: #4CAF50;
+    --error-color: #f44336;
+    --success-color: #4CAF50;
+    --success-hover: #45a049;
+    --bg-gradient-1: #1a1a1a;
+    --bg-gradient-2: #1f3d2d;
+    --text-color: #e0e0e0;
+    --input-bg: #2d2d2d;
+    --container-bg: #212121;
+    --label-color: #9e9e9e;
+    --header-height: 70px;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+header {
+    background: var(--container-bg);
+    height: var(--header-height);
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: var(--label-color);
+}
+
+.calendar-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .calendar-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.calendar-container {
+    background: var(--container-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.courses-list {
+    background: var(--container-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.course-card {
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background: var(--container-bg);
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn {
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--success-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.fc {
+    background: var(--container-bg);
+}
+
+.fc-theme-standard td, .fc-theme-standard th {
+    border-color: var(--primary-color);
+}
+
+.fc-theme-standard .fc-scrollgrid {
+    border-color: var(--primary-color);
+}
+
+.fc-day-today {
+    background: rgba(76, 175, 80, 0.1) !important;
+}
+
+.fc-button-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.fc-button-primary:hover {
+    background-color: var(--success-hover) !important;
+}
+</style>
+</head>
+
+<body>
+    <header>
+        <a href="https://example.com/" class="logo">
+            <svg width="40" height="40" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 20h16M20 12v16" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            LearningPortal
+        </a>
+        <div class="auth-buttons">
+            <a href="https://example.com/login" class="btn btn-outline">Войти</a>
+            <a href="https://example.com/register" class="btn">Регистрация</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1>Добро пожаловать в LearningPortal</h1>
+            <p>Платформа для онлайн-обучения, где каждый может найти свой путь к знаниям</p>
+            <a href="https://example.com/about" class="btn">Узнать больше</a>
+        </section>
+
+        <section class="calendar-section">
+            <div class="calendar-container">
+                <div id="calendar"></div>
+            </div>
+            <div class="courses-list">
+                <h2>Доступные курсы</h2>
+                <div class="course-card">
+                    <h3>Введение в программирование</h3>
+                    <p>Начните свой путь в мир разработки</p>
+                    <p>Дата: 20 июня 2024</p>
+                    <button class="btn">Записаться</button>
+                </div>
+                <div class="course-card">
+                    <h3>Веб-дизайн</h3>
+                    <p>Создавайте современные веб-интерфейсы</p>
+                    <p>Дата: 25 июня 2024</p>
+                    <button class="btn">Записаться</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>О нас</h3>
+                <p>Мы помогаем людям получать качественное образование онлайн</p>
+            </div>
+            <div>
+                <h3>Контакты</h3>
+                <p>Email: info@example.com</p>
+                <p>Телефон: +7 (999) 123-45-67</p>
+            </div>
+            <div>
+                <h3>Соц. сети</h3>
+                <a href="https://vk.com" class="btn btn-outline">ВКонтакте</a>
+                <a href="https://telegram.org" class="btn btn-outline">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    {
+                        title: 'Введение в программирование',
+                        start: '2024-06-20'
+                    },
+                    {
+                        title: 'Веб-дизайн',
+                        start: '2024-06-25'
+                    }
+                ],
+                locale: 'ru',
+                buttonText: {
+                    today: 'Сегодня',
+                    month: 'Месяц',
+                    week: 'Неделя',
+                    day: 'День'
+                }
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
