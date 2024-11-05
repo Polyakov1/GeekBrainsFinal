@@ -13,9 +13,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
-
     private final UserService userService;
-
     public RegistrationController(UserService userService) {
         this.userService = userService;
     }
